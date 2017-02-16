@@ -42,14 +42,8 @@ angular.module('starter',[
 })
 
 
-.run(function($rootScope,$ionicPlatform,$ionicHistory,Location,Auth) {
-  
-  // // Get the location when the person has the app in the foreground
-  // function update_location(){
-  //   if(Auth.isLoggedIn()){
-  //     Location.log();
-  //   };
-  // }
+.run(function($rootScope,$ionicPlatform,$ionicHistory,Auth) {
+ 
 
   // Add device ready listener
   document.addEventListener("deviceready", onDeviceReady, false);

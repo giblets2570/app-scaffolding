@@ -8,3 +8,4 @@ plugins
 resources/android
 resources/ios
 sign.sh
+npm-debug.log

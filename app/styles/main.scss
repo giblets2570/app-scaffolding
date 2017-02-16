@@ -17,10 +17,6 @@ $secondary_yellow:                #ffe082 !default;
 // Ionic Style
 @import "ionic/scss/ionic";
 
-// Application Style
-@import "../scripts/components/job-card/job-card";
-@import "../scripts/components/map-marker/map-marker";
-
 textarea {
   resize: none;
 }

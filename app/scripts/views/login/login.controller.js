@@ -2,7 +2,7 @@
 
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $ionicLoading, $ionicPopup, $timeout, $state, Facebook, Auth, Location) {
+.controller('LoginCtrl', function($scope, $ionicLoading, $ionicPopup, $timeout, $state, Facebook, Auth) {
 
   this.user = {};
 
