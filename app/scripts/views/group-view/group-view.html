@@ -1,0 +1,178 @@
+<script id="transacation.html" type="text/ng-template">
+	<ion-modal-view>
+		<ion-header-bar class="bar bar-header bar-positive">
+			<h1 class="title">New Contact</h1>
+			<button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+		</ion-header-bar>
+		<ion-content class="padding">
+			<div class="list">
+				<label class="item item-input">
+					<span class="input-label">Description</span>
+					<input ng-model="newTransaction.description.original" type="text">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Category</span>
+					<input ng-model="newTransaction.category" type="text">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Amount</span>
+					<input cash-input ng-model="newTransaction.amount.amount" type="text">
+				</label>
+				<button class="button button-full button-positive" ng-click="createTransaction(newTransaction)">Create</button>
+			</div>
+		</ion-content>
+	</ion-modal-view>
+</script>
+
+<script id="users.html" type="text/ng-template">
+	<ion-modal-view>
+		<ion-header-bar class="bar bar-header bar-positive">
+			<h1 class="title">New Users</h1>
+			<button class="button button-clear button-primary" ng-click="$ctrl.users_modal.hide()">Cancel</button>
+		</ion-header-bar>
+		<ion-content class="padding">
+			<ion-list>
+				<ion-checkbox ng-repeat="user in users"
+					ng-model="user.checked" 
+					ng-checked="user.checked">
+					{{ user.firstName }} {{ user.lastName }}
+				</ion-checkbox>
+			</ion-list>
+			<button
+				ng-click="addUsers()"
+				class="button button-positive button-block">
+				<p> Add users </p>
+			</button>
+		</ion-content>
+	</ion-modal-view>
+</script>
+
+<ion-view view-title="Leaderboard">
+	<ion-content>
+		<ion-refresher
+			pulling-text="Pull to refresh..."
+			on-refresh="$ctrl.refresh()">
+		</ion-refresher>
+		<div ng-hide='$ctrl.transactions.$resolved'>
+			<center>
+				<h4>Loading transactions...</h4>
+			</center>
+		</div>
+		<ion-list ng-if='$ctrl.transactions.$resolved'>
+			<ion-item>
+				{{$ctrl.group.name}} transactions
+			</ion-item>
+			<ion-item class='transaction' ng-repeat="transaction in $ctrl.transactions | orderBy : '-created'">
+				<div 
+					class="left-side"
+					ng-style="{'background': $ctrl.category_colours[transaction.category]}"></div>
+				<div class="right-side">
+					<div class="row">
+						<div class="thumbnail col-10">
+							<img
+								ng-src="{{transaction.user.facebookPhoto}}"
+								class="portrait"
+								alt="Image"
+								style="height: 20px; border-radius: 20px;"/>
+						</div>
+						<div class="col">
+							<p style="font-size: 12px;">
+								Spent £{{transaction.amount.amount / 100 | number : 2}} on "{{transaction.description.original}}"
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<small style="font-size: 10px;">{{transaction.category}}</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<p style="text-align: center;">
+								<a href="" class="subdued" ng-click='$ctrl.for(transaction)'>
+									<img src="images/heart.png" height="15px">
+									+{{transaction.likes.length}}
+								</a>
+							</p>
+						</div>
+						<div class="col-25">
+							<p style="text-align: center;">
+								<a href="" class="subdued" ng-click='$ctrl.against(transaction)'>
+									<img src="images/skull.png" height="15px">
+									+{{transaction.dislikes.length}} 
+								</a>
+							</p>
+						</div>
+						<div class="col-50">
+							<a href="" style="text-decoration: none; color: grey;" ng-click="transaction.show_messages=!transaction.show_messages;">
+								<small> {{transaction.show_messages ? "Hide" : ""}} Comments </small>
+							</a>
+						</div>
+					</div>
+					<div ng-show='transaction.show_messages'>
+						<div ng-repeat='message in transaction.messages'>
+							<p> 
+								<img 
+									style="height: 20px; border-radius: 20px;"
+									ng-src="{{message.user.facebookPhoto}}">
+									{{message.text}}
+							</p>
+							<p>
+								<a href="" ng-click="$ctrl.like(transaction,message)" class="subdued">
+									{{message.likes.length}} Like{{message.likes.length==1 ? "" : "s"}}
+								</a>
+								<!-- <a href="#" class="subdued">5 Dislikes</a> -->
+							</p>
+						</div>
+						<div class="item item-input-inset">
+							<label class="item item-input item-input-wrapper">
+								<textarea type="text" placeholder="Write a comment..." ng-model='transaction.new_message'></textarea>
+							</label>
+							<button
+								class="button button-small" 
+								ng-show='transaction.new_message'
+								ng-click='$ctrl.addMessage(transaction)'>
+								Send
+							</button>
+						</div>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+		<div style="padding-bottom: 200px;"></div>
+	</ion-content>
+	<!-- align to the bottom of the page -->
+    <div class="footer">
+    	<div class="row">
+			<div class="col">
+				<h5>Players</h5>
+    			<p>
+    				<a
+						ng-repeat="user in $ctrl.group.users"
+						href=""
+						class="subdued">
+						{{user.firstName}}
+					</a>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 0px;">
+			<div class="col">
+				<button
+					ng-click="openModal()"
+					class="button button-positive button-small">
+					<p> Add transaction </p>
+				</button>
+				<button
+					ng-click="$ctrl.openUserModal()"
+					class="button button-positive button-small">
+					<p> Add user </p>
+				</button>
+				<button
+					ng-click="$ctrl.leaderboard()"
+					class="button button-positive button-small">
+					<p> Leaderboard </p>
+				</button>
+			</div>
+		</div>
+	</div>
+</ion-view>

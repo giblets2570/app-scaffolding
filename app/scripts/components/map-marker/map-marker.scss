@@ -1,0 +1,35 @@
+.header {
+  font-size: 1.2em;
+  white-space: nowrap;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.subheader {
+  font-size: 1em;
+  white-space: nowrap;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.line {
+  font-size: 1em;
+  font-weight: 200;
+  margin: 2px 0 !important;
+}
+
+.marker-row {
+  padding: 0;
+  .marker-col {
+    padding: 5px;
+    button {
+      padding: 5px;
+      font-size: 1.2em;
+      white-space: nowrap;
+    }
+  }
+}
+
+div.leaflet-popup-content {
+  width: auto !important;
+}

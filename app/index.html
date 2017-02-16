@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="bower_components/ionic-calendar/dist/css/calendar.css" />
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css" />
+    <!-- endbower -->
+
+    <!-- Styles -->
+    <link href="styles/main.css" rel="stylesheet">
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <!-- ionic/angularjs js -->
+    <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/ionic/release/js/ionic.js"></script>
+        <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.js"></script>
+        <script src="bower_components/angular-socket-io/socket.js"></script>
+        <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+        <script src="bower_components/ionic-calendar/dist/js/calendar-tpls.js"></script>
+        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+        <script src="bower_components/ionic-modal-select/dist/ionic-modal-select.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+        <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+        <script src="bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
+        <script src="bower_components/ngOpenFB/ngOpenFB.js"></script>
+        <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- your app's js -->
+    <!-- build:js scripts/scripts.js -->
+        <!-- injector:js -->
+        <script src="scripts/config.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/components/image-modal/image-modal.service.js"></script>
+        <script src="scripts/components/job-card/job-card.component.js"></script>
+        <script src="scripts/components/map-marker/map-marker.component.js"></script>
+        <script src="scripts/filters/main.filter.js"></script>
+        <script src="scripts/modules/auth/auth.module.js"></script>
+        <script src="scripts/modules/auth/auth.service.js"></script>
+        <script src="scripts/modules/auth/interceptor.service.js"></script>
+        <script src="scripts/modules/auth/router.decorator.js"></script>
+        <script src="scripts/modules/auth/user.service.js"></script>
+        <script src="scripts/modules/resource/resource.module.js"></script>
+        <script src="scripts/modules/resource/resource.service.js"></script>
+        <script src="scripts/modules/util/util.module.js"></script>
+        <script src="scripts/modules/util/util.service.js"></script>
+        <script src="scripts/services/Clock.js"></script>
+        <script src="scripts/services/Colour.js"></script>
+        <script src="scripts/services/Contact.js"></script>
+        <script src="scripts/services/DeviceToken.js"></script>
+        <script src="scripts/services/Facebook.js"></script>
+        <script src="scripts/services/Group.js"></script>
+        <script src="scripts/services/ImageCapture.js"></script>
+        <script src="scripts/services/ImageUpload.js"></script>
+        <script src="scripts/services/Job.js"></script>
+        <script src="scripts/services/Loading.js"></script>
+        <script src="scripts/services/Location.js"></script>
+        <script src="scripts/services/Routing.js"></script>
+        <script src="scripts/services/Timeslot.js"></script>
+        <script src="scripts/services/Transaction.js"></script>
+        <script src="scripts/utility.js"></script>
+        <script src="scripts/views/group-leaderboard/group-leaderboard.controller.js"></script>
+        <script src="scripts/views/group-leaderboard/group-leaderboard.js"></script>
+        <script src="scripts/views/group-list/group-list.controller.js"></script>
+        <script src="scripts/views/group-list/group-list.js"></script>
+        <script src="scripts/views/group-view/group-view.controller.js"></script>
+        <script src="scripts/views/group-view/group-view.js"></script>
+        <script src="scripts/views/login/login.controller.js"></script>
+        <script src="scripts/views/login/login.js"></script>
+        <script src="scripts/views/menu.controller.js"></script>
+        <script src="scripts/views/menu.js"></script>
+        <script src="scripts/views/walk-through/walk-through.controller.js"></script>
+        <script src="scripts/views/walk-through/walk-through.js"></script>
+        <!-- endinjector -->
+    <!-- endbuild -->
+    
+  </head>
+  
+  <body ng-app="starter" style="">
+    <ion-nav-view>
+    </ion-nav-view>
+  </body>    
+
+</html>

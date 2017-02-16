@@ -1,0 +1,10 @@
+node_modules
+app/bower_components
+platforms
+www
+.temp
+.sass-cache
+plugins
+resources/android
+resources/ios
+sign.sh

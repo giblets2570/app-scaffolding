@@ -1,0 +1,36 @@
+.job-item-note {
+  @extend .item-note;
+  font-size: 16px;
+}
+
+.job-issues {
+  padding: 5px 0; 
+  .job-issue {
+    border-radius: 10px;
+    padding: 1px 4px;
+    background-color: #ddd;
+    margin-right: 10px;
+  }
+}
+
+.create-comment {
+  .col {
+    border: none !important;
+  }
+  textarea {  
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+  }
+  button {
+    float: right;
+  }
+}
+
+.rep-photos {
+  padding: 0 !important;
+}
+
+.rep-photo {
+  margin: 5px;
+}

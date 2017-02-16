@@ -1,0 +1,43 @@
+<ion-view view-title="View Group">
+	<ion-content style="text-align: center;">
+		<ion-refresher
+			pulling-text="Pull to refresh..."
+			on-refresh="$ctrl.refresh()">
+		</ion-refresher>
+		<div class="row">
+			<img src="images/badge.png" class="winning-badge">
+		</div>
+		<div class="row">
+			<div class="col">
+				<h5>Winner</h5>
+			</div>
+			<div class="col">
+				<img
+					ng-src="{{$ctrl.leaderboard[0].facebookPhoto}}"
+					class="portrait"
+					alt="Image"
+					style="height: 40px; border-radius: 20px;"/>
+			</div>
+			<div class="col-50">
+				<p style="margin-top: 8px;">
+					Good transcations: {{$ctrl.leaderboard[0].score.number ? $ctrl.leaderboard[0].score.like * 100 / $ctrl.leaderboard[0].score.number : 0.0 | number : 0}}%
+					<br/>
+					Bad transcations: {{$ctrl.leaderboard[0].score.number ? $ctrl.leaderboard[0].score.dislike * 100 / $ctrl.leaderboard[0].score.number : 0.0 | number : 0}}%
+				</p>
+			</div>
+		</div>
+		<div class="leader-table">
+			<h5>Other players</h5>
+			<div class="row" ng-repeat="user in $ctrl.leaderboard" ng-hide="$first">
+				<div class="col" style="background: rgba(255,255,255,0.3);">
+					<p>{{user.firstName}}</p>
+				</div>
+				<div class="col col-60" style="background: rgba(255,255,255,0.3);">
+					Good transcations: {{user.score.number ? user.score.like * 100 / user.score.number : 0 | number : 0}}%
+					<br/>
+					Bad transcations: {{user.score.number ? user.score.dislike * 100 / user.score.number : 0 | number : 0}}%
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

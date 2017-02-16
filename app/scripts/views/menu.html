@@ -1,0 +1,32 @@
+<ion-header-bar align-title="left" class="bar bar-header">
+	<div class="buttons">
+    	<button
+    		class="button"
+    		style="background: rgba(255,255,255,0.3);"
+    		ng-click="back()"
+    		ng-hide='hide()'>
+    		<i class="ion-arrow-left-c"></i> Back
+    	</button>
+  	</div>
+  	<img src="images/moneycrushlogo.png" style="height: 20px; margin-top: 20px;">
+  	<!-- <div class="buttons">
+    	<button class="button">Right Button</button>
+  	</div> -->
+</ion-header-bar>
+
+
+<!-- <ion-nav-bar>
+  <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button>
+</ion-nav-bar>
+ -->
+<!-- <ion-content class="has-header">
+</ion-content> -->
+<ion-nav-view name="menuContent"></ion-nav-view>
+
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->

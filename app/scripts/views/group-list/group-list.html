@@ -1,0 +1,31 @@
+<ion-view view-title="Groups" hide-back-button="true">
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="$ctrl.refresh()">
+    </ion-refresher>
+    <center>
+      <h4>Your groups</h4>
+    </center>
+    <ion-list>
+      <div ng-show='$ctrl.groups.$resolved'>
+        <a class="item item-icon-right" ui-sref="app.group-view({ group: group._id })" ng-repeat="group in $ctrl.groups">
+          <h2 class="title-case">{{group.name}} - <span>{{group.users.length}} member{{group.users.length==1 ? '' : 's'}}</span></h2>
+          <i class="icon ion-chevron-right"></i>
+        </a>
+        <button 
+          class="button button-block button-moneycrush"
+          ng-click='$ctrl.createNewGroup()'>
+          <h4>
+            Make new group
+          </h4>
+        </button>
+      </div>
+      <div ng-hide='$ctrl.groups.$resolved'>
+        <center>
+          <h4>Loading groups...</h4>
+        </center>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

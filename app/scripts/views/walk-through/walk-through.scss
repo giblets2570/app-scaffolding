@@ -1,0 +1,65 @@
+body {
+  background: $pink !important;
+}
+
+.bar-pink {
+  color: white !important;
+  background: $pink;
+}
+
+.slider {
+  position: fixed;  
+  top: 0;
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+}
+
+.slider-slide {
+  text-align: center;  
+  width: 100%;  
+}
+
+.slider-slide img {
+    position: absolute;  
+    bottom: -40px;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+
+.slider-pager {
+  bottom: 120px;
+  .slider-pager-page {
+    color: $positive;
+  }
+}
+
+.slide-heading {
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 22px;
+  color: $calm;
+  .facebook {
+    color: $royal;
+  }
+}
+
+.bar-grey {
+  border-color: $grey;
+  bottom: 62px;
+  .title {
+    color: $dark;
+    font-size: 15px;
+  }
+
+}
+
+.bar-bigger {
+  height: 55px;
+  .title {
+    font-size: 20px;
+    height: 55px;
+    line-height: 50px;
+  }
+}

@@ -1,0 +1,37 @@
+<ion-view view-title="Login" hide-back-button="true">
+  <ion-content>
+    <div class="avatar avatar-calm" style="padding: 40px; text-align: center; ">       
+      <img ng-src="{{login.user.facebookPhoto}}" style="border-radius: 50px;">
+      <h6> {{login.user.firstName}} {{login.user.lastName}} </h6>
+      <h4> {{login.is_signup ? "Sign up new account" : "Log in to your account"}} </h4>
+    </div>
+    <form name='form' ng-submit="login.post()" ng-show='login.done'>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Password:</span>
+          <input type="password" ng-model="login.user.password" name='password' required>
+        </label>
+        <label class="item item-input" ng-show="login.is_signup">
+          <span class="input-label">Confirm:</span>
+          <input type="password" ng-model="login.user.confirm_password" name='confirmPassword'>
+        </label>
+        <label
+          class="item"
+          ng-show="login.is_signup && login.user.password && (login.user.password === login.user.confirm_password)">
+          <button
+            class="button button-block button-positive" 
+            type="submit">Sign up
+          </button>
+        </label>
+        <label
+          class="item"
+          ng-show="login.is_login && login.user.password">
+          <button
+            class="button button-block button-positive" 
+            type="submit">Log in
+          </button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
